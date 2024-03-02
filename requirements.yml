@@ -1,0 +1,5 @@
+confluent-kafka
+rospy-message-converter
+numpy
+config
+argparse

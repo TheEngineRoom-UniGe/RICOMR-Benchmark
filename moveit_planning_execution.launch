@@ -1,0 +1,16 @@
+<launch>
+  <arg name="namespace" default="0"/>
+  <env name="ROS_NAMESPACE" value="/crowd/$(arg namespace)" />
+  <arg name="sim" default="false" />
+  <arg name="debug" default="false" />
+
+  <!-- Remap follow_joint_trajectory -->
+  <remap if="$(arg sim)" from="/crowd/$(arg namespace)/scaled_pos_joint_traj_controller/follow_joint_trajectory" to="/crowd/$(arg namespace)/eff_joint_traj_controller/follow_joint_trajectory"/>
+<group ns="/crowd/$(arg namespace)">
+  <!-- Launch moveit -->
+  <include file="$(find ur5_moveit_config)/launch/move_group.launch">
+    <arg name="debug" default="$(arg debug)" />
+  </include>
+</group>
+</launch>
+
