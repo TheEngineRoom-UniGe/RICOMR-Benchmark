@@ -50,9 +50,9 @@
   </include>
   
   <!-- Robot state publisher -->
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher_$(arg namespace)">
     <param name="publish_frequency" type="double" value="$(arg tf_pub_rate)" />
-    <param name="tf_prefix" value="$(arg namespace)" />
+    <param name="tf_prefix" value="/crowd/$(arg namespace)" />
   </node>
     
   <!-- Load controller settings -->
