@@ -12,5 +12,6 @@
     <arg name="debug" default="$(arg debug)" />
   </include>
 </group>
+<node pkg="tf2_ros" type="static_transform_publisher" name="world_broadcaster_$(arg namespace)" args="0 0 0 0 0 0 world crowd/$(arg namespace)/world" />
 </launch>
 
