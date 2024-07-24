@@ -26,13 +26,13 @@ class UR5Interface:
       self.idle_joint_state = [0, 0, 0, 0, 0, 0]
 
       self.name_space = "/crowd/{0}".format(ns)
-      self.trajectory_topic= "{0}_{1}_trajectory_follow".format("crowd",ns)
+      self.trajectory_topic= "robot_{0}_joint_trajectory".format(ns)
 
       self.is_ros=is_ros
 
-      self.kafka_bootstrap_server='pkc-38xx2.eu-south-1.aws.confluent.cloud:9092'
-      self.kafka_key='IQJUOFHV4A5N35MB'
-      self.kafka_secret='QZQojAa3N7ltyNyMUCtGBnO1+6sENEBnzDSjrfsq8t7h9QiPuNGPUIJawDEHO1tx'
+      self.kafka_bootstrap_server='SASL_PLAINTEXT://172.31.35.29:9093,SASL_PLAINTEXT://172.31.35.29:9094,SASL_PLAINTEXT://172.31.35.29:9095'
+      self.kafka_key='theengineroom'
+      self.kafka_secret='1tYdZP43t20'
 
       if not(self.is_ros):
          self.kafka_producer = KafkaProducer(bootstrap_serv=self.kafka_bootstrap_server,api_key=self.kafka_key,api_secret=self.kafka_secret)
