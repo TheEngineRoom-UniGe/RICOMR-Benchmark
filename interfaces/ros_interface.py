@@ -30,7 +30,7 @@ class UR5Interface:
 
       self.is_ros=is_ros
 
-      self.kafka_bootstrap_server='SASL_PLAINTEXT://172.31.35.29:9096,SASL_PLAINTEXT://172.31.35.29:9097,SASL_PLAINTEXT://172.31.35.29:9098'
+      self.kafka_bootstrap_server='SASL_PLAINTEXT://172.31.35.29:9093,SASL_PLAINTEXT://172.31.35.29:9094,SASL_PLAINTEXT://172.31.35.29:9095'
       self.kafka_key='theengineroom'
       self.kafka_secret='1tYdZP43t20'
 
