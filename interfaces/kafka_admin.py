@@ -9,7 +9,8 @@ class KafkaAdmin:
         self.kafka_admins = AdminClient({
           'bootstrap.servers': bootstrap_serv,
           'sasl.mechanism': 'PLAIN',
-          'security.protocol': 'SASL_SSL',
+          'security.protocol': 'SASL_PLAINTEXT',
+          #'security.protocol': 'SASL_SSL',
           'sasl.username': api_key,
           'sasl.password': api_secret
       })
