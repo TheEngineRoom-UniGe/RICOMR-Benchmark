@@ -7,7 +7,7 @@ import time
 def talker():
     pub = rospy.Publisher('chatter', Header, queue_size=100)
     rospy.init_node('talker', anonymous=True)
-    rate = rospy.Rate(700)  # 10hz
+    rate = rospy.Rate(100)  # 10hz
     while not rospy.is_shutdown():
         current_time = rospy.Time.now()
         msg = Header()
