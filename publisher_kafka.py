@@ -18,11 +18,11 @@ def talker():
 
     rate = rospy.Rate(500)  # 10hz
     while not rospy.is_shutdown():
-        msg = Header()
-        msg.stamp = rospy.Time.now()
-        msg.frame_id = ""
-        msg.seq = 0
-        kafka_producer.produce_record(msg)
+        msg_pub = Header()
+        msg_pub.stamp = rospy.Time.now()
+        msg_pub.frame_id = ""
+        msg_pub.seq = 0
+        kafka_producer.produce_record(topic=kafka_Topic,msg=msg_pub)
         rate.sleep()
 
 if __name__ == '__main__':
