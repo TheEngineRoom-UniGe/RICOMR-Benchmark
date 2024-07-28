@@ -4,6 +4,7 @@ import time, threading
 from confluent_kafka import Consumer, KafkaError
 from rospy_message_converter import message_converter
 from interfaces.kafka_producer import KafkaProducer
+import json
 
 
 def callback(msg):
@@ -17,7 +18,7 @@ def callback(msg):
 
 
 def listener():
-    kafka_bootstrap_server='SASL_PLAINTEXT://172.31.35.29:9093,SASL_PLAINTEXT://172.31.35.29:9094,SASL_PLAINTEXT://172.31.35.29:9095'
+    kafka_bootstrap_server='SASL_PLAINTEXT://172.31.35.29:9096,SASL_PLAINTEXT://172.31.35.29:9097,SASL_PLAINTEXT://172.31.35.29:9098'
     kafka_key='theengineroom'
     kafka_secret='1tYdZP43t20'
     kafka_Topic = "benchmarking_topic"
@@ -25,7 +26,7 @@ def listener():
     consumer = Consumer({
     'bootstrap.servers': kafka_bootstrap_server,
     'sasl.mechanisms': 'PLAIN',
-    'security.protocol': 'SASL_SSL',
+    'security.protocol': 'SASL_PLAINTEXT',
     'sasl.username': kafka_key,
     'sasl.password': kafka_secret,
     'group.id': 'stock_price_group',
@@ -45,9 +46,9 @@ def listener():
                 else:
                     print(f'Error while consuming: {msg.error()}')
             else:
-                message = message_converter.convert_dictionary_to_ros_message('std_msgs/Header', msg.value().decode('utf-8'))
+                message = message_converter.convert_dictionary_to_ros_message('std_msgs/Header', json.loads(msg.value().decode('utf-8')))
                 message.seq = 1
-                kafka_producer.produce_record(message)
+                kafka_producer.produce_record(topic=kafka_Topic,msg=message)
 
 
     except KeyboardInterrupt:
