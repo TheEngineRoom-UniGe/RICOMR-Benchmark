@@ -30,5 +30,6 @@ sudo apt install ros-foxy-gazebo-ros*
 sudo apt install ros-foxy-nav2*
 
 cd ~/benchmark_ws
+source /opt/ros/foxy/setup.bash
 colcon build --symlink-install
 source ./install/setup.bash
