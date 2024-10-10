@@ -35,3 +35,4 @@ sudo apt install ros-galactic-rmw-cyclonedds-cpp
 cd ~/benchmark_ws
 colcon build --symlink-install
 source ./install/setup.bash
+sudo echo "source /home/ubuntu/benchmark_ws/install/setup.bash" > ~/.bashrc
