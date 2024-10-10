@@ -209,9 +209,9 @@ def spawn_robot(
 
     ros_distro = os.environ.get('ROS_DISTRO')
 
-    controller_run_state = 'active'
-    if ros_distro == 'foxy':
-        controller_run_state = 'start'
+    controller_run_state = 'start'
+    #if ros_distro == 'foxy':
+    #    controller_run_state = 'start'
 
     robot_spawn_entity = Node(
         package="gazebo_ros",
