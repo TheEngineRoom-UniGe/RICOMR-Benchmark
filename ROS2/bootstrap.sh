@@ -23,6 +23,8 @@ sudo apt update
 sudo apt install ros-galactic-desktop python3-argcomplete
 sudo apt install ros-dev-tools
 sudo echo "source /opt/ros/galactic/setup.bash" > ~/.bashrc
+sudo echo "export CYCLONEDDS_URI=/home/ubuntu/cyclone_profile.xml" > ~/.bashrc
+sudo echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" > ~/.bashrc
 
 sudo apt install ros-galactic-control*
 sudo apt install ros-galactic-moveit*
