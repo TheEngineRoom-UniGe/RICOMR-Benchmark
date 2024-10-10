@@ -20,16 +20,16 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 
 sudo apt update
 
-sudo apt install ros-foxy-desktop python3-argcomplete
+sudo apt install ros-galactic-desktop python3-argcomplete
 sudo apt install ros-dev-tools
-sudo echo "source /opt/ros/foxy/setup.bash" > ~/.bashrc
+sudo echo "source /opt/ros/galactic/setup.bash" > ~/.bashrc
 
-sudo apt install ros-foxy-control*
-sudo apt install ros-foxy-moveit*
-sudo apt install ros-foxy-gazebo-ros*
-sudo apt install ros-foxy-nav2*
+sudo apt install ros-galactic-control*
+sudo apt install ros-galactic-moveit*
+sudo apt install ros-galactic-gazebo-ros*
+sudo apt install ros-galactic-nav2*
+sudo apt install ros-galactic-rmw-cyclonedds-cpp
 
 cd ~/benchmark_ws
-source /opt/ros/foxy/setup.bash
 colcon build --symlink-install
 source ./install/setup.bash
