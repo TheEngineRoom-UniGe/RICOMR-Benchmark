@@ -5,6 +5,12 @@ project(robot_benchmark)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(gazebo_ros REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/CustomHeader.msg"
+  DEPENDENCIES builtin_interfaces
+)
 
 include_directories(include)
 link_directories(
